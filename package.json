@@ -1,0 +1,53 @@
+{
+  "name": "fujits",
+  "type": "module",
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.18.1",
+  "description": "The fast, modern TypeScript utility collection that includes everything you love.",
+  "author": "hellolin <i@hellolin.top>",
+  "license": "MIT",
+  "homepage": "https://github.com/VLTHellolin/fujits",
+  "repository": {
+    "url": "https://github.com/VLTHellolin/fujits"
+  },
+  "keywords": [
+    "utils",
+    "typescript"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "husky",
+    "build": "rollup -c rollup.config.ts --configPlugin swc3",
+    "test": "vitest",
+    "lint": "eslint --cache --fix .",
+    "commitlint": "commitlint --edit",
+    "release": "bumpp"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^20.0.0",
+    "@hellolin/eslint-config": "^2.0.0",
+    "@swc/core": "^1.13.5",
+    "bumpp": "^10.3.1",
+    "commitlint": "^20.1.0",
+    "eslint": "^9.37.0",
+    "fdir": "^6.5.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.3",
+    "rollup": "^4.52.4",
+    "rollup-plugin-dts": "^6.2.3",
+    "rollup-plugin-swc3": "^0.12.1",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}
