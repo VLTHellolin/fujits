@@ -10,8 +10,8 @@ describe('chunk', () => {
   });
 
   it('should throw if chunk size is not an integer', () => {
-    expect(chunk([1, 2, 3], 0.5)).toThrow('Chunk size must be an integer');
-    expect(chunk([1, 2, 3], NaN)).toThrow('Chunk size must be an integer');
+    expect(() => chunk([1, 2, 3], 0.5)).toThrow('Chunk size must be an integer');
+    expect(() => chunk([1, 2, 3], NaN)).toThrow('Chunk size must be an integer');
   });
 
   it('should throw if chunk size is less than 1', () => {
