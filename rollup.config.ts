@@ -9,11 +9,7 @@ import { swc } from 'rollup-plugin-swc3';
 const getInputEntries = () => {
   const crawler = new fdir()
     .withRelativePaths()
-    .glob(
-      './**/*.?([cm])[jt]s?(x)',
-      '!**/*.test.*',
-      '!**/*.d.ts',
-    );
+    .filter(path => path.endsWith('.ts') && !path.endsWith('.test.ts') && !path.endsWith('.d.ts'));
 
   return Object.fromEntries(
     crawler.crawl('./src').sync().map(file => [
