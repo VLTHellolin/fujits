@@ -1,1 +1,2 @@
-export { chunk } from './chunk';
+export * from './chunk';
+export * from './shuffle';
