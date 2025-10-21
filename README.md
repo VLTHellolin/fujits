@@ -1,4 +1,4 @@
-# fujits
+# 🗻 Fuji.ts
 
 The fast, modern TypeScript utility collection that includes everything you love.
 
@@ -11,6 +11,8 @@ The fast, modern TypeScript utility collection that includes everything you love
 
 ```shell
 pnpm install fujits
+# or via jsr
+deno add jsr:@fujits/fujits
 ```
 
 If you want to directly bundle fujits into your code, you can install it under `devDependencies`.
