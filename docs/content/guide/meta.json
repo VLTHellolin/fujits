@@ -1,0 +1,11 @@
+{
+  "title": "Guide",
+  "description": "Basic guide",
+  "icon": "GraduationCap",
+  "root": true,
+  "pages": [
+    "index",
+    "best-practice",
+    "contributing"
+  ]
+}

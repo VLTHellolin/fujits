@@ -1,0 +1,73 @@
+---
+title: Get Started
+icon: Play
+---
+
+Welcome to 🗻 Fuji.ts!
+
+Fuji.ts is a fast, modern TypeScript utility collection. It contains simple yet robust utilities for everyday use, has zero dependencies, and is bundled to tree-shakable ES modules.
+
+View it on GitHub: [VLTHellolin/fujits](https://github.com/VLTHellolin/fujits).
+
+## Installation
+
+### Node.js
+
+You can install Fuji.ts on Node.js via NPM:
+
+``` npm
+npm i fujits
+```
+
+<Callout>
+
+If you have a bundler, it's recommended to install `fujits` under `devDependencies` (i.e. `--save-dev`).
+
+Since Fuji.ts provides tiny helper functions, doing so will improve performance becase you actually bundle Fuji.ts into your code. However, you can certainly keep `fujits` under your `dependencies`.
+
+</Callout>
+
+### Deno
+
+You can install Fuji.ts on Deno via JSR:
+
+``` shell
+deno add @fujits/fujits
+```
+
+### CDN
+
+Fuji.ts is only bundled in ESM format, so you can install it using the following method:
+
+``` html
+<script type="importmap">
+  {
+    "imports": {
+      "fujits": "https://esm.sh/fujits@latest"
+    }
+  }
+</script>
+<script type="module">
+  import { debounce } from 'fujits';
+  // ...
+</script>
+```
+
+## Prerequisites
+
+Technically and hopefully speaking, Fuji.ts is compatible with the most of JavaScript environments, for it uses few modern JS features. However, we suggest you to check the prerequisites below to ensure Fuji.ts works properly:
+
+- Node.js `>=18` (or equivant runtime version)
+- Browser:
+  - Chrome `>=89`
+  - Firefox `>=108`
+  - Safari `>=16.4`
+  - Opera `>=76`
+
+For TypeScript, Fuji.ts is designed to use with TS `>=5.4`.
+
+## Usage
+
+Import utilities from `fujits`, enjoy!
+
+Read [references](/references) for more details on using Fuji.ts.
