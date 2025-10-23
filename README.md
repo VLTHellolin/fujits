@@ -10,12 +10,12 @@ The fast, modern TypeScript utility collection that includes everything you love
 ## Usage
 
 ```shell
-pnpm install fujits
+pnpm add fujits
 # or via jsr
 deno add jsr:@fujits/fujits
 ```
 
-If you want to directly bundle fujits into your code, you can install it under `devDependencies`.
+For further information, visit the [docs](https://fujits.hellolin.top).
 
 ## License
 
