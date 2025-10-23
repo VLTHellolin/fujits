@@ -1,6 +1,13 @@
 @import 'tailwindcss';
-@import 'fumadocs-ui/css/solar.css';
+@import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
+
+:root {
+  --color-fd-primary: oklch(0.62 0.22 300);
+}
+.dark {
+  --color-fd-primary: oklch(0.68 0.2 300);
+}
 
 button[aria-label='Collapse Sidebar'] {
   @apply lg:hidden;

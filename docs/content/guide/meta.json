@@ -4,7 +4,7 @@
   "icon": "GraduationCap",
   "root": true,
   "pages": [
-    "index",
+    "../index",
     "best-practice",
     "contributing"
   ]

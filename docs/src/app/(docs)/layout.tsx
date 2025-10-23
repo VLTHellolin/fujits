@@ -7,7 +7,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const { nav, ...base } = baseOptions();
 
   return (
-    <DocsLayout tree={source.pageTree} tabMode='navbar' nav={{ ...nav, mode: 'top' }} {...base}>
+    <DocsLayout
+      {...base}
+      tree={source.pageTree}
+      tabMode='navbar'
+      nav={{ ...nav, mode: 'top' }}
+      githubUrl='https://github.com/VLTHellolin/fujits'
+    >
       {children}
     </DocsLayout>
   );
