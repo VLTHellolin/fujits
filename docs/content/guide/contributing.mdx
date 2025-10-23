@@ -2,3 +2,69 @@
 title: Contributing
 icon: GitMerge
 ---
+
+Thank you for being so interested in our project! To contribute to this project, you will need to own a GitHub account and set up some necessary tools.
+
+## Development
+
+In order to make pull requests, you will have to fork [Fuji.ts](https://github.com/VLTHellolin/fujits).
+
+After cloning the forked repo to your local machine, install the dependencies:
+
+``` shell
+pnpm install
+```
+
+To preview docs website:
+
+``` shell
+pnpm run --filter docs dev
+```
+
+To lint or run tests:
+
+``` shell
+pnpm lint # it will automatically lint files before `git commit`
+pnpm test
+```
+
+## Contributing
+
+Before writing code, you will have to know some principles of Fuji.ts.
+
+### Project Structure
+
+<Files>
+  <Folder name='docs' defaultOpen>
+    <Folder name='content' />
+    <File name='package.json' />
+  </Folder>
+  <Folder name='src' defaultOpen>
+    <Folder name='category' defaultOpen>
+      <File name='function.ts' />
+      <File name='function.test.ts' />
+      <File name='index.ts' />
+    </Folder>
+    <File name='index.ts' />
+  </Folder>
+  <File name='package.json' />
+  <File name='README.md' />
+</Files>
+
+### New Utility
+
+You should choose an existing category to store your new utility, e.g. array, function.
+
+After writing the source code, you should add a unit test file along with it. Vitest will test your new features on `pnpm test`.
+
+Don't forget to export it in `index.ts` of the category:
+
+``` ts
+export * from './chunk';
+export * from './shuffle';
+// ...
+```
+
+### Comments
+
+You should write detailed [TSDoc](https://tsdoc.org/) comments for all exported utilities.

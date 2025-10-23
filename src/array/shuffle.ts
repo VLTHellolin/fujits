@@ -1,5 +1,5 @@
 /**
- * Shuffles an array in place using the Fisher-Yates algorithm.
+ * Shuffles an array using the Fisher-Yates algorithm. Returns a new array.
  *
  * @param array The array to be shuffled
  * @param rand Optional random number generator function (default is Math.random)

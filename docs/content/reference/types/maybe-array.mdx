@@ -1,0 +1,14 @@
+---
+title: MaybeArray
+---
+
+A type that can be either a single value of type `T` or an array of type `T`.
+
+## Usage
+
+``` ts
+import type { MaybeArray } from 'fujits/types';
+
+const var1: MaybeArray<number> = 42;
+const var2: MaybeArray<number> = [1, 2, 3];
+```

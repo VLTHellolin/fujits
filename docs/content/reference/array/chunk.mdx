@@ -1,0 +1,42 @@
+---
+title: chunk
+---
+
+Splits an array into chunks (smaller arrays) of a specified size.
+
+## Usage
+
+``` ts
+import { chunk } from 'fujits/array';
+
+const array = [1, 2, 3, 4, 5];
+chunk(array, 2); // => [[1, 2], [3, 4], [5]]
+chunk(array, 3); // => [[1, 2, 3], [4, 5]]
+chunk(array, 10); // => [[1, 2, 3, 4, 5]]
+array !== chunk(array, 10); // => true
+
+chunk([], 2); // => []
+```
+
+``` ts
+import { chunk } from 'fujits/array';
+
+const array = [1, 2, 3, 4, 5];
+chunk(array, -1); // Error: Chunk size must be greater than 0
+chunk(array, 0.5); // Error: Chunk size must be an integer
+```
+
+## Types
+
+``` ts
+/**
+ * Splits an array into chunks (smaller arrays) of a specified size.
+ *
+ * @param array The array to be chunked
+ * @param size The size of each chunk
+ * @returns A new array containing the chunked arrays
+ *
+ * @throws Will throw an error if the chunk size is not a positive integer.
+ */
+function chunk<T>(array: readonly T[], size: number): T[][]
+```

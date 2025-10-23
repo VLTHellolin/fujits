@@ -1,0 +1,95 @@
+---
+title: throttle
+---
+
+Creates a throttled version of the given function.
+
+## Usage
+
+`throttle` lets you limit how often a function can be invoked. The original function will immediately be invoked after the first call, then in a period of time, it won't be invoked again.
+
+``` ts
+import { throttle } from 'fujits/function';
+
+const scrollHandler = throttle(() => {
+  console.log(window.scrollY);
+}, 200);
+
+window.addEventListener('scroll', scrollHandler);
+```
+
+You can make the function invoked in the beginning or at the end:
+
+``` ts
+import { throttle } from 'fujits/throttle';
+
+const func1 = throttle(() => {
+  console.log('Invoked');
+}, 300, { invokeAt: 'leading' });
+
+func1(); // console: Invoked
+func1();
+func1();
+
+const func2 = throttle(() => {
+  console.log('Invoked');
+}, 300, { invokeAt: 'trailing' });
+
+func2();
+func2();
+func2();
+
+await setTimeout(() => {}, 300);
+// console: Invoked
+```
+
+You can pass an [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) to cancel a throttled function:
+
+``` ts
+import { throttle } from 'fujits/function';
+
+const controller = new AbortController();
+const func = throttle(() => {
+  console.log('Invoked');
+}, 300, { signal: controller.signal });
+
+func();
+// console: Invoked
+func();
+
+await setTimeout(() => {}, 300);
+controller.abort();
+func();
+// nothing happens
+```
+
+## Types
+
+``` ts
+interface ThrottleOptions {
+  /**
+   * An `AbortSignal` that can be used to cancel the throttle.
+   */
+  signal?: AbortSignal;
+  /**
+   * Determines when the throttled function is invoked.
+   *
+   * @default 'leading'
+   */
+  invokeAt?: 'leading' | 'trailing' | 'both';
+}
+
+/**
+ * Creates a throttled version of the given function.
+ *
+ * @param func The function to throttle
+ * @param interval The throttle interval in milliseconds (ms)
+ * @param options Options for the throttle behavior
+ * @returns A throttled version of the original function
+ */
+function throttle<F extends (...args: any[]) => void>(
+  func: F,
+  interval: number,
+  options?: ThrottleOptions,
+): (...args: Parameters<F>) => void
+```

@@ -1,0 +1,14 @@
+{
+  "title": "Reference",
+  "description": "Function reference",
+  "icon": "CodeXml",
+  "root": true,
+  "pages": [
+    "---[SquareLibrary]Array---",
+    "...array",
+    "---[SquareFunction]Function---",
+    "...function",
+    "---[Package]Types---",
+    "...types"
+  ]
+}

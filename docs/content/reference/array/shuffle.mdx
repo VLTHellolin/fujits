@@ -1,0 +1,35 @@
+---
+title: shuffle
+---
+
+Shuffles an array using [the Fisher-Yates algorithm](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle). Returns a new array.
+
+## Usage
+
+By default, [`Math.random`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) is used to generate a random number. You can pass your own random function that returns a number between 0 (inclusive) and 1 (exclusive).
+
+During the algorithm, the random function will be called for exactly N - 1 times, where N is the length of the array.
+
+``` ts
+import { shuffle } from 'fujits/array';
+
+const array = [1, 2, 3, 4, 5];
+const shuffled = shuffle(array); // maybe => [3, 2, 4, 1, 5]
+array !== shuffled; // => true
+
+shuffle([]); // => []
+shuffle(array, () => 0); // => [2, 3, 4, 5, 1]
+```
+
+## Types
+
+``` ts
+/**
+ * Shuffles an array using the Fisher-Yates algorithm. Returns a new array.
+ *
+ * @param array The array to be shuffled
+ * @param rand Optional random number generator function (default is Math.random)
+ * @returns A new array with the elements shuffled
+ */
+function shuffle<T>(array: readonly T[], rand?: () => number): T[]
+```

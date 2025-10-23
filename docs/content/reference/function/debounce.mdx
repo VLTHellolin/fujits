@@ -1,0 +1,73 @@
+---
+title: debounce
+---
+
+Creates a debounced version of the given function.
+
+## Usage
+
+`debounce` lets you combine several consecutive function calls into one. The orignal function will only be invoked after a certain amount of time has passed since the last call.
+
+``` ts
+import { debounce } from 'fujits/function';
+
+const search = debounce(async (query: string) => {
+  const result = await fetch(`/api?s=${query}`);
+  // ...
+}, 300);
+
+searchInputEl.addEventListener('input', e => {
+  search(e.target.value);
+});
+```
+
+You can pass an [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) to cancel a debounced function:
+
+``` ts
+import { debounce } from 'fujits/function';
+
+const controller = new AbortController();
+const func = debounce(() => {
+  console.log('Invoked');
+}, 300, { signal: controller.signal });
+
+func();
+await setTimeout(() => {}, 300);
+// console: Invoked
+
+func();
+controller.abort();
+func();
+// nothing happens
+```
+
+## Types
+
+``` ts
+interface DebounceOptions {
+  /**
+   * An `AbortSignal` that can be used to cancel the debounce.
+   */
+  signal?: AbortSignal;
+  /**
+   * Determines when the debounced function is invoked.
+   *
+   * @default 'trailing'
+   */
+  invokeAt?: 'leading' | 'trailing' | 'both';
+}
+
+/**
+ * Creates a debounced version of the given function.
+ *
+ * @param func The function to debounce
+ * @param delay The debounce delay in milliseconds (ms)
+ * @param options Options for the debounce behavior
+ * @returns A debounced version of the original function
+ */
+function debounce<F extends (...args: any[]) => void>(
+  func: F,
+  delay: number,
+  options?: DebounceOptions,
+): (...args: Parameters<F>) => void
+```

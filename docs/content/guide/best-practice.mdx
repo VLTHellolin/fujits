@@ -2,3 +2,13 @@
 title: Best Practice
 icon: PencilRuler
 ---
+
+## Bundle Fuji.ts into Your Code
+
+If you use a bundler, it's recommended to bundle Fuji.ts into your code.
+
+Doing so (especially in library projects, or app projects that use an external CDN) will reduce the pressure of resolving, boost tree-shaking, and eventually improve the performance.
+
+In [Rollup](https://rollupjs.org), make sure that the [`external`](https://rollupjs.org/configuration-options/#external) dependencies don't contain Fuji.ts.
+
+In most other bundlers, you can generally achieve it by adding Fuji.ts to `devDependencies` instead of `dependencies`.
