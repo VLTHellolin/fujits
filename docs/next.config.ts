@@ -9,6 +9,7 @@ const withMDX = createMDX({
 export default withMDX({
   compress: isProduction,
   reactStrictMode: true,
+  reactCompiler: true,
   logging: {
     fetches: {
       fullUrl: true,
@@ -19,7 +20,6 @@ export default withMDX({
   experimental: {
     webpackBuildWorker: true,
     webpackMemoryOptimizations: true,
-    reactCompiler: true,
     serverMinification: true,
     serverSourceMaps: false,
   },
